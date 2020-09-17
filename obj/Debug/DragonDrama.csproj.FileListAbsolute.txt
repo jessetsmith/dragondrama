@@ -1,0 +1,7 @@
+C:\Users\jtann\OneDrive\Desktop\Eleven Fifty Projects\DotNetProjects\CSharpFundamentals\DragonDrama\bin\Debug\DragonDrama.exe.config
+C:\Users\jtann\OneDrive\Desktop\Eleven Fifty Projects\DotNetProjects\CSharpFundamentals\DragonDrama\bin\Debug\DragonDrama.exe
+C:\Users\jtann\OneDrive\Desktop\Eleven Fifty Projects\DotNetProjects\CSharpFundamentals\DragonDrama\bin\Debug\DragonDrama.pdb
+C:\Users\jtann\OneDrive\Desktop\Eleven Fifty Projects\DotNetProjects\CSharpFundamentals\DragonDrama\obj\Debug\DragonDrama.csprojAssemblyReference.cache
+C:\Users\jtann\OneDrive\Desktop\Eleven Fifty Projects\DotNetProjects\CSharpFundamentals\DragonDrama\obj\Debug\DragonDrama.csproj.CoreCompileInputs.cache
+C:\Users\jtann\OneDrive\Desktop\Eleven Fifty Projects\DotNetProjects\CSharpFundamentals\DragonDrama\obj\Debug\DragonDrama.exe
+C:\Users\jtann\OneDrive\Desktop\Eleven Fifty Projects\DotNetProjects\CSharpFundamentals\DragonDrama\obj\Debug\DragonDrama.pdb
