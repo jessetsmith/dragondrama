@@ -148,13 +148,14 @@ namespace DragonDrama
         public void Run()
         {
 
-            Console.WriteLine("DRAGON DRAMA\n" +
+            Console.WriteLine("\n" +
+                "DRAGON DRAMA\n" +
                 "\n" +
                 "You have accepted the quest to save the princess from the dragon's lair!\n" +
                 "The journey will be perilous, and you must make the right choices in order to succeed.\n" +
                 "Good luck and godspeed, brave knight!\n" +
                 "\n" +
-                "** Movement commands: move, go, turn, step **\n" +
+                "** Movement commands: move, go, turn, step (Pair with the right keywords to progress through the game) **\n" +
                 "\n" +
                 "**Press any key to continue**\n" +
                 "\n");
@@ -191,11 +192,21 @@ namespace DragonDrama
                             currentLocation = maze;
                         }
                         else if (currentLocation == ropeBridge && command.Contains("two"))
+                    {
+                        Console.WriteLine("A board breaks beneath you, and you fall to your death.\n" +
+                              "GAME OVER\n" +
+                              "\n");
+                        Console.WriteLine("Do you want to play again ?\n" +
+                              "Type yes or no\n" +
+                              "\n");
+                        string playAgain = Console.ReadLine();
+                        
+                        if (playAgain == "yes")
                         {
+                            currentLocation = bridgeStart;
+                        }else if (playAgain == "no"){
                             alive = false;
-                            Console.WriteLine("A board breaks beneath you, and you fall to your death.\n" +
-                                "GAME OVER");
-                            Console.ReadKey();
+                        }
                         }
                         else if (currentLocation == maze && command.Contains("left"))
                         {
@@ -228,34 +239,69 @@ namespace DragonDrama
                         }
                         else if (currentLocation == dragonsLair && command.Contains("treasure"))
                         {
-                            alive = false;
                             Console.WriteLine("You have awakened the dragon!\n" +
                                 "Your last sight is a fiery inferno rushing towards you\n" +
-                                "GAME OVER");
-                            Console.ReadKey();
+                                "GAME OVER\n" +
+                                "\n");
+                        Console.WriteLine("Do you want to play again ?\n" +
+                             "Type yes or no\n" +
+                             "\n");
+                        string playAgain = Console.ReadLine();
+
+                        if (playAgain == "yes")
+                        {
+                            currentLocation = bridgeStart;
+                        }
+                        else if (playAgain == "no")
+                        {
+                            alive = false;
+                        }
 
                         }
                         else if (currentLocation == escapeLair && command.Contains("left"))
                         {
-                            alive = false;
                             Console.WriteLine("The floor beneath you crumbles, and you fail to grab ahold of anything to stop your fall.\n" +
                                 "You plummet to a fiery pit of lava.\n" +
-                                "GAME OVER");
-                            Console.ReadKey();
+                                "GAME OVER\n" +
+                                "\n");
+                        Console.WriteLine("Do you want to play again ?\n" +
+                                                     "Type yes or no\n" +
+                                                     "\n");
+                        string playAgain = Console.ReadLine();
 
+                        if (playAgain == "yes")
+                        {
+                            currentLocation = bridgeStart;
                         }
+                        else if (playAgain == "no")
+                        {
+                            alive = false;
+                        }
+                    }
                         else if (currentLocation == escapeLair && command.Contains("straight"))
                         {
                             currentLocation = tower;
                         }
                         else if (currentLocation == courtyard && command.Contains("straight"))
                         {
-                            alive = false;
                             Console.WriteLine("The floor beneath you crumbles, and you fail to grab ahold of anything to stop your fall.\n" +
                                 "You plummet to a fiery pit of lava.\n" +
-                                "GAME OVER");
-                            Console.ReadKey();
+                                "GAME OVER\n" +
+                                "\n");
+                        Console.WriteLine("Do you want to play again ?\n" +
+                                                     "Type yes or no\n" +
+                                                     "\n");
+                        string playAgain = Console.ReadLine();
+
+                        if (playAgain == "yes")
+                        {
+                            currentLocation = bridgeStart;
                         }
+                        else if (playAgain == "no")
+                        {
+                            alive = false;
+                        }
+                    }
                         else if (currentLocation == courtyard && command.Contains("right"))
                         {
                             currentLocation = tower;
@@ -275,13 +321,24 @@ namespace DragonDrama
                         }
                         else if (currentLocation == dungeonTrap && !inventory.Contains(Item.key))
                         {
-                            alive = false;
-
                             Console.WriteLine("You do not have the key in your inventory \n" +
                                 "You will remain locked away for the remainder of your life\n" +
-                                "GAME OVER");
-                            Console.ReadKey();
+                                "GAME OVER\n" +
+                                "\n");
+                        Console.WriteLine("Do you want to play again ?\n" +
+                                                     "Type yes or no\n" +
+                                                     "\n");
+                        string playAgain = Console.ReadLine();
+
+                        if (playAgain == "yes")
+                        {
+                            currentLocation = bridgeStart;
                         }
+                        else if (playAgain == "no")
+                        {
+                            alive = false;
+                        }
+                    }
                         else if (currentLocation == tower && command.Contains("straight"))
                         {
                             currentLocation = skeletonTrap;
@@ -300,7 +357,9 @@ namespace DragonDrama
                             if (attack.attackSuccess() == true)
                             {
                                 Console.WriteLine("You fight and defeat the enchanted skeletons, and they drop a vial of a potion\n" +
-                                                                "You pick it up just to be safe, and return to the tower entrance.");
+                                                                "You pick it up just to be safe, and return to the tower entrance.\n" +
+                                                                "Type any key to continue\n" +
+                                                                "\n");
                                 inventory.Add(Item.enchantmentCure);
                                 Console.ReadKey();
                                 currentLocation = tower;
@@ -308,9 +367,21 @@ namespace DragonDrama
                             else if (attack.attackSuccess() == false)
                             {
                                 Console.WriteLine("You fight valiantly, but you have been defeated by your enemy!\n" +
-                                    "GAME OVER");
-                                Console.ReadKey();
-                                alive = false;
+                                    "GAME OVER\n" +
+                                    "\n");
+                                Console.WriteLine("Do you want to play again ?\n" +
+                             "Type yes or no\n" +
+                             "\n");
+                                string playAgain = Console.ReadLine();
+
+                                if (playAgain == "yes")
+                                {
+                                    currentLocation = bridgeStart;
+                                }
+                                else if (playAgain == "no")
+                                {
+                                    alive = false;
+                                }
                             }
                            
                         }
@@ -358,9 +429,21 @@ namespace DragonDrama
                             else if (attack.attackSuccess() == false)
                             {
                                 Console.WriteLine("You fight valiantly, but you have been defeated by your enemy the dragon!\n" +
-                                    "GAME OVER");
-                                Console.ReadKey();
-                                alive = false;
+                                    "GAME OVER\n" +
+                                    "\n");
+                                Console.WriteLine("Do you want to play again ?\n" +
+                             "Type yes or no\n" +
+                             "\n");
+                                string playAgain = Console.ReadLine();
+
+                                if (playAgain == "yes")
+                                {
+                                    currentLocation = bridgeStart;
+                                }
+                                else if (playAgain == "no")
+                                {
+                                    alive = false;
+                                }
                             }
 
                         }
@@ -368,9 +451,21 @@ namespace DragonDrama
                         {
                             Console.WriteLine("You have chosen not to fight.\n" +
                                 "The dragon has fried you to a crisp.\n" +
-                                "GAME OVER");
-                            Console.ReadKey();
-                            alive = false;
+                                "GAME OVER\n" +
+                                "\n");
+                            Console.WriteLine("Do you want to play again ?\n" +
+                              "Type yes or no\n" +
+                              "\n");
+                            string playAgain = Console.ReadLine();
+
+                            if (playAgain == "yes")
+                            {
+                                currentLocation = bridgeStart;
+                            }
+                            else if (playAgain == "no")
+                            {
+                                alive = false;
+                            }
                         }
                         Console.ReadKey(); 
                             gameInProgress = false;
@@ -380,9 +475,22 @@ namespace DragonDrama
                         {
                             alive = false;
                             Console.WriteLine("You have failed to rescue the princess\n" +
-                               "GAME OVER!");
-                            Console.ReadKey();
+                               "GAME OVER!\n" +
+                               "\n");
+                        Console.WriteLine("Do you want to play again ?\n" +
+                         "Type yes or no\n" +
+                         "\n");
+                        string playAgain = Console.ReadLine();
+
+                        if (playAgain == "yes")
+                        {
+                            currentLocation = bridgeStart;
                         }
+                        else if (playAgain == "no")
+                        {
+                            alive = false;
+                        }
+                    }
                         else
                         {
                             Console.WriteLine("Your choices weren't understood, please try again.");

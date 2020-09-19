@@ -28,9 +28,10 @@ namespace DragonDrama
         }
         public bool attackoption()
         {
-            Console.WriteLine("Do you want to fight?");
+            Console.WriteLine("Do you want to fight?\n" +
+                "Type yes or no");
             string userchoice = Console.ReadLine();
-            if (userchoice.ToLower() == "y")
+            if (userchoice.ToLower() == "yes")
             {
                 //attackdraw();
                 return true;
